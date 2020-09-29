@@ -65,7 +65,6 @@ namespace Yerbowo.Api.Extensions
 			services.AddSingleton<IPasswordValidator, PasswordValidator>();
 			services.AddSingleton(AutoMapperConfig.Initialize());
 			services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-			services.AddSingleton<ISession, DistributedSession>();
 			
 
 			services.AddMediatR(AppDomain.CurrentDomain.Load("Yerbowo.Application"));
