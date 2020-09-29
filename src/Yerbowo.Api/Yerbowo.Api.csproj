@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Logs\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
@@ -16,6 +17,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.1" />
     <PackageReference Include="NWebsec.AspNetCore.Middleware" Version="2.0.0" />
 	<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
+	<PackageReference Include="Serilog.AspNetCore" Version="3.4.0" />
   </ItemGroup>
 
   <ItemGroup>

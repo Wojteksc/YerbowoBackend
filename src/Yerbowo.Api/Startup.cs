@@ -1,18 +1,15 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
 using Yerbowo.Api.Extensions;
-using Yerbowo.Api.Helpers;
 using Yerbowo.Infrastructure.Context;
 
 namespace Yerbowo.Api
 {
-    public class Startup
+	public class Startup
     {
         public Startup(IConfiguration configuration)
         {
@@ -56,7 +53,6 @@ namespace Yerbowo.Api
                 app.UseForwardedHeadersOptions();
                 app.UseExceptionHandlers();
             }
-
             app.UseCorsOptions();
             app.UseRouting();
             app.UseSecurityHeaders();
