@@ -42,7 +42,7 @@ namespace Yerbowo.Application.Cart.AddCartItems
 			}
 			else
 			{
-				int index = products.FindIndex(x => x.ProductDetailsDto.Id == productDb.Id);
+				int index = products.FindIndex(x => x.Product.Id == productDb.Id);
 
 				if (index != -1)
 				{
@@ -62,7 +62,7 @@ namespace Yerbowo.Application.Cart.AddCartItems
 		{
 			cart.Add(new CartItemDto()
 			{
-				ProductDetailsDto = productDetailsDto,
+				Product = productDetailsDto,
 				Quantity = quantity
 			});
 

@@ -75,7 +75,7 @@ namespace Yerbowo.Application.Settings
 
                 cfg.CreateMap<List<CartItemDto>, CartDto>()
                 .ForMember(d => d.Items, s => s.MapFrom(x => x))
-                .ForMember(d => d.Total, s => s.MapFrom(x => x.Sum(a => a.ProductDetailsDto.Price * a.Quantity)));
+                .ForMember(d => d.Total, s => s.MapFrom(x => x.Sum(a => a.Product.Price * a.Quantity)));
 
             }).CreateMapper();
         }

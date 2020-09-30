@@ -22,7 +22,7 @@ namespace Yerbowo.Application.Cart.RemoveCartItems
 		public Task<Unit> Handle(RemoveCartItemCommand request, CancellationToken cancellationToken)
 		{
 			var products = _session.GetObjectFromJson<List<CartItemDto>>(Consts.CartSessionKey);
-			int index = products.FindIndex(x => x.ProductDetailsDto.Id == request.ProductId);
+			int index = products.FindIndex(x => x.Product.Id == request.ProductId);
 
 			if (index != -1)
 			{
