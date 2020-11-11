@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Yerbowo.Application.Cart.AddCartItems;
+using Yerbowo.Application.Cart.ChangeCartItems;
 using Yerbowo.Application.Cart.GetCartItems;
 using Yerbowo.Application.Cart.RemoveCartItems;
 
@@ -22,22 +23,32 @@ namespace Yerbowo.Api.Controllers
 		[HttpGet]
 		public async Task<IActionResult> Get()
 		{
-			var cartItems = await _mediator.Send(new GetCartItemsQuery());
-			return Ok(cartItems);
+			var cart = await _mediator.Send(new GetCartItemsQuery());
+			return Ok(cart);
 		}
 
-		[HttpGet("{id}")]
-		public async Task<IActionResult> Add(int id)
+		[HttpPut("{id}")]
+		public async Task<IActionResult> Put(int id, ChangeCartItemCommand command)
 		{
-			await _mediator.Send(new AddCartItemCommand(id));
-			return NoContent();
+			if (id != command.Id)
+				return BadRequest();
+
+			var cart = await _mediator.Send(command);
+			return Ok(cart);
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> Add(AddCartItemCommand command)
+		{
+			var cart = await _mediator.Send(command);
+			return Ok(cart);
 		}
 
 		[HttpDelete("{id}")]
 		public async Task<IActionResult> Delete(int id)
 		{
-			await _mediator.Send(new RemoveCartItemCommand(id));
-			return NoContent();
+			var cart = await _mediator.Send(new RemoveCartItemCommand(id));
+			return Ok(cart);
 		}
 	}
 }

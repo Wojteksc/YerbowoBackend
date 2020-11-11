@@ -1,8 +1,8 @@
 ﻿using Yerbowo.Domain.Products;
 
-namespace Yerbowo.Application.Products.GetProductDetails
+namespace Yerbowo.Application.Cart
 {
-    public class ProductDetailsDto
+	public class CartProductItemDto
     {
         public int Id { get; set; }
         public string Code { get; set; }
@@ -13,7 +13,8 @@ namespace Yerbowo.Application.Products.GetProductDetails
         public int Stock { get; set; }
         public ProductState State { get; set; }
         public string Image { get; set; }
-		public string Category { get; set; }
-		public string Subcategory { get; set; }
+        public string CategorySlug { get; set; }
+        public string SubcategorySlug { get; set; }
+        public string Slug { get; set; }
     }
 }

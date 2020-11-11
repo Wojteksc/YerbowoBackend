@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -21,7 +22,9 @@ namespace Yerbowo.Application.Products.GetProductDetails
 
 		public async Task<ProductDetailsDto> Handle(GetProductBySlugQuery request, CancellationToken cancellationToken)
 		{
-			var product = await _productRepository.GetAsync(request.Slug);
+			var product = await _productRepository.GetAsync(request.Slug, x => x
+				.Include(p => p.Subcategory)
+				.ThenInclude(s => s.Category));
 
 			if (product == null)
 				throw new Exception("Produkt nie istnieje");

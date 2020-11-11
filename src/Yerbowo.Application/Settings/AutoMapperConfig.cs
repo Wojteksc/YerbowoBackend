@@ -42,6 +42,12 @@ namespace Yerbowo.Application.Settings
                 cfg.CreateMap<Product, CreateProductCommand>();
                 cfg.CreateMap<PagedList<Product>, PagedProductCardDto>()
                 .ForMember(d => d.Products, s => s.MapFrom(x => x));
+                cfg.CreateMap<Product, CartProductItemDto>()
+                .ForMember(d => d.CategorySlug, s => s.MapFrom(x => x.Subcategory.Category.Slug))
+                .ForMember(d => d.SubcategorySlug, s => s.MapFrom(x => x.Subcategory.Slug));
+                cfg.CreateMap<Product, ProductDetailsDto>()
+                .ForMember(d => d.Category, s => s.MapFrom(x => x.Subcategory.Category.Name))
+                .ForMember(d => d.Subcategory, s => s.MapFrom(x => x.Subcategory.Name));
 
                 cfg.CreateMap<Order, OrderDto>()
                 .ForMember(d => d.Total, s => s.MapFrom(x => x.TotalCost))
@@ -75,7 +81,8 @@ namespace Yerbowo.Application.Settings
 
                 cfg.CreateMap<List<CartItemDto>, CartDto>()
                 .ForMember(d => d.Items, s => s.MapFrom(x => x))
-                .ForMember(d => d.Total, s => s.MapFrom(x => x.Sum(a => a.Product.Price * a.Quantity)));
+                .ForMember(d => d.Sum, s => s.MapFrom(x => x.Sum(a => a.Product.Price * a.Quantity)))
+                .ForMember(d => d.TotalItems, s => s.MapFrom(x => x.Sum(a => a.Quantity)));
 
             }).CreateMapper();
         }

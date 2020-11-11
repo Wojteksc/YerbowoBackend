@@ -1,18 +1,19 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Yerbowo.Application.Cart.Utils;
 using Yerbowo.Application.Extensions;
-using Yerbowo.Application.Products.GetProductDetails;
 using Yerbowo.Application.Settings;
 using Yerbowo.Infrastructure.Data.Products;
 
 namespace Yerbowo.Application.Cart.AddCartItems
 {
-	public class AddCartItemHandler : IRequestHandler<AddCartItemCommand>
+	public class AddCartItemHandler : IRequestHandler<AddCartItemCommand, CartDto>
 	{
 		private readonly IHttpContextAccessor _httpContextAccessor;
 		private ISession _session;
@@ -29,41 +30,49 @@ namespace Yerbowo.Application.Cart.AddCartItems
 			_mapper = mapper;
 		}
 
-		public async Task<Unit> Handle(AddCartItemCommand request, CancellationToken cancellationToken)
+		public async Task<CartDto> Handle(AddCartItemCommand request, CancellationToken cancellationToken)
 		{
-			
-			var productDb = _mapper.Map<ProductDetailsDto>(await _productRepository.GetAsync(request.Id));
+			var productDb = await _productRepository.GetAsync(request.Id, x => x
+				.Include(p => p.Subcategory)
+				.ThenInclude(s => s.Category));
+
+			var productDto = _mapper.Map<CartProductItemDto>(productDb);
 			var products = _session.GetObjectFromJson<List<CartItemDto>>(Consts.CartSessionKey);
 
 			if (products == null)
 			{
 				products = new List<CartItemDto>();
-				AddNewProductToCart(products, productDb);
+				await AddNewProductToCart(products, productDto, request);
 			}
 			else
 			{
-				int index = products.FindIndex(x => x.Product.Id == productDb.Id);
+				int productIndex = products.FindIndex(x => x.Product.Id == productDb.Id);
 
-				if (index != -1)
+				if (productIndex != -1)
 				{
-					products[index].Quantity++;
+					int productQuantity = products[productIndex].Quantity + request.Quantity;
+					await CartHelper.VerifyStock(_productRepository, request.Id, productQuantity);
+
+					products[productIndex].Quantity = productQuantity;
 					_session.SetString(Consts.CartSessionKey, JsonConvert.SerializeObject(products));
 				}
 				else
 				{
-					AddNewProductToCart(products, productDb);
+					await AddNewProductToCart(products, productDto, request);
 				}
 			}
 
-			return await Unit.Task;
+			return _mapper.Map<CartDto>(_session.GetObjectFromJson<List<CartItemDto>>(Consts.CartSessionKey));
 		}
 
-		private void AddNewProductToCart(List<CartItemDto> cart, ProductDetailsDto productDetailsDto, int quantity = 1)
+		private async Task AddNewProductToCart(List<CartItemDto> cart, CartProductItemDto productDetailsDto, AddCartItemCommand request)
 		{
+			await CartHelper.VerifyStock(_productRepository, request.Id, request.Quantity);
+
 			cart.Add(new CartItemDto()
 			{
 				Product = productDetailsDto,
-				Quantity = quantity
+				Quantity = request.Quantity
 			});
 
 			_session.SetString(Consts.CartSessionKey, JsonConvert.SerializeObject(cart));

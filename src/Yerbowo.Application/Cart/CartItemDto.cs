@@ -4,7 +4,7 @@ namespace Yerbowo.Application.Cart
 {
 	public class CartItemDto
 	{
-		public ProductDetailsDto Product { get; set; }
+		public CartProductItemDto Product { get; set; }
 		public int Quantity { get; set; }
 	}
 }

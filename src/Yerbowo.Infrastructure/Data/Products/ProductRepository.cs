@@ -21,6 +21,13 @@ namespace Yerbowo.Infrastructure.Data.Products
             return await _entitiesNotRemoved.SingleOrDefaultAsync(x => x.Slug == slug);
         }
 
+        public async Task<Product> GetAsync(string slug, Func<IQueryable<Product>, IQueryable<Product>> func)
+        {
+            IQueryable<Product> resultWithEagerLoading = func(_entitiesNotRemoved);
+
+            return await resultWithEagerLoading.SingleOrDefaultAsync(e => e.Slug == slug);
+        }
+
         public async Task<IEnumerable<Product>> BrowseRandomAsync(int quantity)
         {
             var products = await _entitiesNotRemoved

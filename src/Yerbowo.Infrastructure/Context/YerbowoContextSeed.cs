@@ -192,14 +192,14 @@ namespace Yerbowo.Infrastructure.Context
 
 			var products = new Product[]
 			{
-				new Product(1,"1234","YERBA MATE AMANDA 1KG", rm.GetString("Amanda"), 38.45m, 38.45m, 43, ProductState.None,"amanda.jpg") {CreatedAt = DateTime.Now.AddMonths(0)},
-				new Product(1,"2345","YERBA MATE CAMPESINO CLASICA 500G", rm.GetString("CampesinoClasica"),21.70m,21.70m, 34, ProductState.None,"campesino-clasica.jpg" ) {CreatedAt = DateTime.Now.AddMonths(-1)},
-				new Product(1,"3456","YERBA MATE NOBLEZA GAUCHA MOLIENDA 500G",rm.GetString("NoblezaGauchaMolienda"),25.70m, 25.70m, 100, ProductState.None,"nobleza-gaucha-molienda.jpg") {CreatedAt = DateTime.Now.AddMonths(-2)},
-				new Product(1,"5432","YERBA MATE BARAO DE COTEGIPE PREMIUM 1 KG",rm.GetString("BaraoDeCotegipePremium"),59.45m, 63.45m, 44, ProductState.None, "barao-de-cotegipe-premium.jpg") {CreatedAt = DateTime.Now.AddMonths(0)},
-				new Product(1,"4324","YERBA MATE ROSAMONTE 1KG", rm.GetString("Rosamonte"),44.95m,44.95m,54, ProductState.None,"rosamonte.jpg") {CreatedAt = DateTime.Now.AddMonths(-4)},
-				new Product(1,"8523","YERBA MATE SARA ROJA TRADICIONAL SIN PALO 1KG", rm.GetString("SaraRojaTradicionalSinPalo"),47.24m,47.24m, 90, ProductState.None,"sara-roja-tradicional-sin-palo.jpg") {CreatedAt = DateTime.Now.AddMonths(-3)},
-				new Product(1,"5347","YERBA MATE PIPORE TERERE 500G", rm.GetString("PiporeTerere"),23.95m,23.95m, 10, ProductState.None,"pipore-terere.jpg") {CreatedAt = DateTime.Now.AddMonths(-4)},
-				new Product(1,"0987","YERBA MATE AGUANTADORA TERERE 500G", rm.GetString("AguantadoraTerere"),24.70m,24.70m, 20, ProductState.None,"aguantadora-terere.jpg") {CreatedAt = DateTime.Now.AddMonths(0)}
+				new Product(1,"1234","AMANDA 1KG", rm.GetString("Amanda"), 38.45m, 38.45m, 43, ProductState.None,"amanda.jpg") {CreatedAt = DateTime.Now.AddMonths(0)},
+				new Product(1,"2345","CAMPESINO CLASICA 500G", rm.GetString("CampesinoClasica"),21.70m,21.70m, 34, ProductState.None,"campesino-clasica.jpg" ) {CreatedAt = DateTime.Now.AddMonths(-1)},
+				new Product(1,"3456","NOBLEZA GAUCHA MOLIENDA 500G",rm.GetString("NoblezaGauchaMolienda"),25.70m, 25.70m, 100, ProductState.None,"nobleza-gaucha-molienda.jpg") {CreatedAt = DateTime.Now.AddMonths(-2)},
+				new Product(1,"5432","BARAO DE COTEGIPE PREMIUM 1 KG",rm.GetString("BaraoDeCotegipePremium"),59.45m, 63.45m, 44, ProductState.None, "barao-de-cotegipe-premium.jpg") {CreatedAt = DateTime.Now.AddMonths(0)},
+				new Product(1,"4324","ROSAMONTE 1KG", rm.GetString("Rosamonte"),44.95m,44.95m,54, ProductState.None,"rosamonte.jpg") {CreatedAt = DateTime.Now.AddMonths(-4)},
+				new Product(1,"8523","SARA ROJA TRADICIONAL SIN PALO 1KG", rm.GetString("SaraRojaTradicionalSinPalo"),47.24m,47.24m, 90, ProductState.None,"sara-roja-tradicional-sin-palo.jpg") {CreatedAt = DateTime.Now.AddMonths(-3)},
+				new Product(1,"5347","PIPORE TERERE 500G", rm.GetString("PiporeTerere"),23.95m,23.95m, 10, ProductState.None,"pipore-terere.jpg") {CreatedAt = DateTime.Now.AddMonths(-4)},
+				new Product(1,"0987","AGUANTADORA TERERE 500G", rm.GetString("AguantadoraTerere"),24.70m,24.70m, 20, ProductState.None,"aguantadora-terere.jpg") {CreatedAt = DateTime.Now.AddMonths(0)}
 			};
 
 			foreach (Product p in products)
@@ -215,11 +215,11 @@ namespace Yerbowo.Infrastructure.Context
 
 			var products = new Product[]
 			{
-				new Product(2,"s331","YERBA MATE PAJARITO SELECCION ESPECIAL 500G", rm.GetString("PajaritoSeleccionEspecial"), 20.95m, 20.95m, 40, ProductState.None, "pajarito-seleccion-especial.jpg") {CreatedAt = DateTime.Now.AddMonths(-5)},
-				new Product(2,"s432","YERBA MATE KRAUS GAUCHO SIN PALO 500G", rm.GetString("KrausGauchoSinPalo"),26.45m,26.45m, 50, ProductState.None,"kraus-gaucho-sin-palo.jpg") {CreatedAt = DateTime.Now.AddMonths(-1)},
-				new Product(2,"s867","YERBA MATE AGUANTADORA SELECCION ESPECIAL 500G", rm.GetString("AguantadoraSeleccionEspecial"),28.70m,28.70m, 90, ProductState.None,"aguantadora-seleccion-especial.jpg") {CreatedAt = DateTime.Now.AddMonths(-4)},
-				new Product(2,"s690","YERBA MATE PIPORE ESPECIAL 500G", rm.GetString("PiporeEspecial"),25.45m,25.45m, 31, ProductState.None,"pipore-especial.jpg") {CreatedAt = DateTime.Now.AddMonths(-8)},
-				new Product(2,"s321","YERBA MATE LA MERCED CAMPO&MONTE 500G", rm.GetString("LaMercedCampoMonte"),28.70m,31.45m, 25, ProductState.None,"la-merced-campo-monte.jpg") {CreatedAt = DateTime.Now.AddMonths(-4)},
+				new Product(2,"s331","PAJARITO SELECCION ESPECIAL 500G", rm.GetString("PajaritoSeleccionEspecial"), 20.95m, 20.95m, 40, ProductState.None, "pajarito-seleccion-especial.jpg") {CreatedAt = DateTime.Now.AddMonths(-5)},
+				new Product(2,"s432","KRAUS GAUCHO SIN PALO 500G", rm.GetString("KrausGauchoSinPalo"),26.45m,26.45m, 50, ProductState.None,"kraus-gaucho-sin-palo.jpg") {CreatedAt = DateTime.Now.AddMonths(-1)},
+				new Product(2,"s867","AGUANTADORA SELECCION ESPECIAL 500G", rm.GetString("AguantadoraSeleccionEspecial"),28.70m,28.70m, 90, ProductState.None,"aguantadora-seleccion-especial.jpg") {CreatedAt = DateTime.Now.AddMonths(-4)},
+				new Product(2,"s690","PIPORE ESPECIAL 500G", rm.GetString("PiporeEspecial"),25.45m,25.45m, 31, ProductState.None,"pipore-especial.jpg") {CreatedAt = DateTime.Now.AddMonths(-8)},
+				new Product(2,"s321","LA MERCED CAMPO&MONTE 500G", rm.GetString("LaMercedCampoMonte"),28.70m,31.45m, 25, ProductState.None,"la-merced-campo-monte.jpg") {CreatedAt = DateTime.Now.AddMonths(-4)},
 			};
 
 			foreach (Product p in products)
@@ -235,8 +235,8 @@ namespace Yerbowo.Infrastructure.Context
 
 			var products = new Product[]
 			{
-				new Product(3,"e211","YERBA MATE UNION SUAVE 500G", rm.GetString("UnionSuave"), 21.70m, 21.70m, 90, ProductState.None, "union-suave.jpg") {CreatedAt = DateTime.Now.AddMonths(-1)},
-				new Product(3,"e111","YERBA MATE AMANDA ORGANICA 500G", rm.GetString("AmandaOrganica"), 31.96m, 31.96m, 100, ProductState.None, "amanda-organica.jpg") {CreatedAt = DateTime.Now.AddMonths(-3)}
+				new Product(3,"e211","UNION SUAVE 500G", rm.GetString("UnionSuave"), 21.70m, 21.70m, 90, ProductState.None, "union-suave.jpg") {CreatedAt = DateTime.Now.AddMonths(-1)},
+				new Product(3,"e111","AMANDA ORGANICA 500G", rm.GetString("AmandaOrganica"), 31.96m, 31.96m, 100, ProductState.None, "amanda-organica.jpg") {CreatedAt = DateTime.Now.AddMonths(-3)}
 			};
 
 			foreach (Product p in products)
@@ -252,8 +252,8 @@ namespace Yerbowo.Infrastructure.Context
 
 			var products = new Product[]
 			{
-				new Product(4,"s211","YERBA MATE EL PAJARO DESPALADA BIO 350G", rm.GetString("ElPajaroDespaladaBio"), 20.70m, 23.70m, 43, ProductState.None, "el-pajaro-despalada-bio.jpg") {CreatedAt = DateTime.Now.AddMonths(0)},
-				new Product(4,"s111","YERBA MATE TARAGUI VITALITY DESPALADA 500G", rm.GetString("TaraguiVitalityDespalada"), 22.70m, 22.70m, 4, ProductState.None, "taragui-vitality-despalada.jpg") {CreatedAt = DateTime.Now.AddMonths(-1)}
+				new Product(4,"s211","EL PAJARO DESPALADA BIO 350G", rm.GetString("ElPajaroDespaladaBio"), 20.70m, 23.70m, 43, ProductState.None, "el-pajaro-despalada-bio.jpg") {CreatedAt = DateTime.Now.AddMonths(0)},
+				new Product(4,"s111","TARAGUI VITALITY DESPALADA 500G", rm.GetString("TaraguiVitalityDespalada"), 22.70m, 22.70m, 4, ProductState.None, "taragui-vitality-despalada.jpg") {CreatedAt = DateTime.Now.AddMonths(-1)}
 			};
 
 			foreach (Product p in products)
@@ -269,7 +269,7 @@ namespace Yerbowo.Infrastructure.Context
 
 			var products = new Product[]
 			{
-				new Product(5,"z211","YERBA MATE PIPORE LISTO MENTA LIMON 500G", rm.GetString("PiporeListoMentaLimon"), 23.95m, 25.95m, 43, ProductState.None, "pipore-listo-menta-limon.jpg") {CreatedAt = DateTime.Now.AddMonths(-3)},
+				new Product(5,"z211","PIPORE LISTO MENTA LIMON 500G", rm.GetString("PiporeListoMentaLimon"), 23.95m, 25.95m, 43, ProductState.None, "pipore-listo-menta-limon.jpg") {CreatedAt = DateTime.Now.AddMonths(-3)},
 			};
 
 			foreach (Product p in products)
@@ -301,7 +301,7 @@ namespace Yerbowo.Infrastructure.Context
 
 			var products = new Product[]
 			{
-				new Product(7,"ge211","YERBA MATE LA TRANQUERA 500G", rm.GetString("LaTranquera"), 37.30m, 37.30m, 42, ProductState.None, "la-tranquera.jpg") {CreatedAt = DateTime.Now.AddMonths(-3)},
+				new Product(7,"ge211","LA TRANQUERA 500G", rm.GetString("LaTranquera"), 37.30m, 37.30m, 42, ProductState.None, "la-tranquera.jpg") {CreatedAt = DateTime.Now.AddMonths(-3)},
 			};
 
 			foreach (Product p in products)
@@ -317,7 +317,7 @@ namespace Yerbowo.Infrastructure.Context
 
 			var products = new Product[]
 			{
-				new Product(8,"f211","YERBA MATE CBSE SILUETA NARANJA POMARAŃCZOWA 500G", rm.GetString("CbseSiluetaNaranjaOrange"), 27.95m, 27.95m, 3, ProductState.None, "cbse-silueta-naranja-orange.jpg") {CreatedAt = DateTime.Now.AddMonths(-3)},
+				new Product(8,"f211","CBSE SILUETA NARANJA POMARAŃCZOWA 500G", rm.GetString("CbseSiluetaNaranjaOrange"), 27.95m, 27.95m, 3, ProductState.None, "cbse-silueta-naranja-orange.jpg") {CreatedAt = DateTime.Now.AddMonths(-3)},
 			};
 
 			foreach (Product p in products)
@@ -347,7 +347,7 @@ namespace Yerbowo.Infrastructure.Context
 		{
 			var OrderItems1 = new List<OrderItem>()
 			{
-				new OrderItem(productId: 1, quantity: 4, price: 36.45m) { CreatedAt = DateTime.Now.AddMonths(-2), UpdatedAt = DateTime.Now.AddMonths(-2) },
+				new OrderItem(productId: 4, quantity: 4, price: 36.45m) { CreatedAt = DateTime.Now.AddMonths(-2), UpdatedAt = DateTime.Now.AddMonths(-2) },
 				new OrderItem(productId: 6, quantity: 1, price: 45m) { CreatedAt = DateTime.Now.AddMonths(-2), UpdatedAt = DateTime.Now.AddMonths(-2) },
 				new OrderItem(productId: 3, quantity: 2, price: 25.70m) { CreatedAt = DateTime.Now.AddMonths(-2), UpdatedAt = DateTime.Now.AddMonths(-2) },
 				new OrderItem(productId: 5, quantity: 1, price: 43m) { CreatedAt = DateTime.Now.AddMonths(-2), UpdatedAt = DateTime.Now.AddMonths(-2) },
