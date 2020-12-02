@@ -52,7 +52,9 @@ namespace Yerbowo.Api
             {
                 app.UseForwardedHeadersOptions();
                 app.UseExceptionHandlers();
+                app.UseHttpsRedirection();
             }
+
             app.UseCorsOptions();
             app.UseRouting();
             app.UseSecurityHeaders();

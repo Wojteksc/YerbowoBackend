@@ -2,19 +2,13 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Session;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System;
-using System.Data.Common;
-using System.IO;
-using System.Reflection;
 using System.Text;
 using Yerbowo.Application.Services;
 using Yerbowo.Application.Services.Implementations;
@@ -50,7 +44,7 @@ namespace Yerbowo.Api.Extensions
 		public static void AddContext(this IServiceCollection services, IConfiguration configuration)
 		{
 			services.AddDbContextPool<YerbowoContext>(options =>
-				options.UseMySql(configuration.GetMySqlConnectionString("YerbowoDatabaseMySql")));
+				options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 		}
 
 		public static void AddServices(this IServiceCollection services)
