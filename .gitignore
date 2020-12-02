@@ -5,6 +5,8 @@
 
 # Custom
 [Ll]ogs/
+[Ww]wwroot/
+yerbowo - Web Deploy/
 
 # User-specific files
 *.suo
