@@ -4,7 +4,6 @@ namespace Yerbowo.Application.Auth.SocialLogin
 {
 	public class SocialLoginCommand : IRequest<ResponseToken>
 	{
-		public string Id { get; set; }
 		public string Email { get; set; }
 		public string FirstName { get; set; }
 		public string LastName { get; set; }
