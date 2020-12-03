@@ -105,8 +105,8 @@ namespace Yerbowo.Infrastructure.Context
 
 		private void SeedUsers()
 		{
-			var admin = new User("Woytech", "Wojciechowski", "wojteksc21@gmail.com", "", "admin", "", "", "conn809");
-			var simpleUser = new User("Adamn", "Nowak", "mailsensersc@gmail.com", "", "user", "", "", "conn809");
+			var admin = new User("Woytech", "Wojciechowski", "test@test.com", "", "admin", "", "", "Haslo123.");
+			var simpleUser = new User("Adamn", "Nowak", "test2@test.com", "", "user", "", "", "Haslo123.");
 
 			_db.Users.Add(admin);
 			_db.Users.Add(simpleUser);
