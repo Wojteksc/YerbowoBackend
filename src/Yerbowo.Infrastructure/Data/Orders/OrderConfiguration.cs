@@ -17,6 +17,9 @@ namespace Yerbowo.Infrastructure.Data.Orders
             builder.HasOne(o => o.User)
                 .WithMany()
                 .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Property(o => o.TotalCost)
+                .HasColumnType("decimal(16,2)");
         }
     }
 }
