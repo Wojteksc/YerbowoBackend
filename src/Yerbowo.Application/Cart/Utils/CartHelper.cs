@@ -14,5 +14,13 @@ namespace Yerbowo.Application.Cart.Utils
 			if (cartItemQuantity > productDb.Stock)
 				throw new Exception("Przekroczono zapas");
 		}
+
+		public static void VerifyQuantity(int quantity)
+		{
+			if (quantity < 1)
+			{
+				throw new Exception("Niepraidłowa ilość");
+			}
+		}
 	}
 }

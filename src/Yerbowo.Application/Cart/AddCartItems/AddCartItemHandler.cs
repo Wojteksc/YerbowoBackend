@@ -3,7 +3,9 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Yerbowo.Application.Cart.Utils;
@@ -32,6 +34,8 @@ namespace Yerbowo.Application.Cart.AddCartItems
 
 		public async Task<CartDto> Handle(AddCartItemCommand request, CancellationToken cancellationToken)
 		{
+			CartHelper.VerifyQuantity(request.Quantity);
+
 			var productDb = await _productRepository.GetAsync(request.Id, x => x
 				.Include(p => p.Subcategory)
 				.ThenInclude(s => s.Category));

@@ -32,6 +32,8 @@ namespace Yerbowo.Application.Cart.ChangeCartItems
 
 		public async Task<CartDto> Handle(ChangeCartItemCommand request, CancellationToken cancellationToken)
 		{
+			CartHelper.VerifyQuantity(request.Quantity);
+
 			var products = _session.GetObjectFromJson<List<CartItemDto>>(Consts.CartSessionKey);
 
 			var productIndex = products.FindIndex(x => x.Product.Id == request.Id);
