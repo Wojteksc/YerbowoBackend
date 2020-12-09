@@ -12,7 +12,7 @@ namespace Yerbowo.Application.Cart.GetCartItems
 	public class GetCartItemsHandler : IRequestHandler<GetCartItemsQuery, CartDto>
 	{
 		private readonly IHttpContextAccessor _httpContextAccessor;
-		private ISession _session;
+		private readonly ISession _session;
 		private readonly IMapper _mapper;
 
 		public GetCartItemsHandler(IHttpContextAccessor httpContextAccessor,

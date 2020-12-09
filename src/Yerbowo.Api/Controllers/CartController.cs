@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Yerbowo.Application.Cart.AddCartItems;
 using Yerbowo.Application.Cart.ChangeCartItems;
 using Yerbowo.Application.Cart.GetCartItems;
+using Yerbowo.Application.Cart.GetTotalCartItems;
 using Yerbowo.Application.Cart.RemoveCartItems;
 
 namespace Yerbowo.Api.Controllers
@@ -25,6 +26,13 @@ namespace Yerbowo.Api.Controllers
 		{
 			var cart = await _mediator.Send(new GetCartItemsQuery());
 			return Ok(cart);
+		}
+
+		[HttpGet("totalCartProducts")]
+		public async Task<IActionResult> GetTotalCartProducts()
+		{
+			int totalCartItems = await _mediator.Send(new GetTotalCartItemsQuery());
+			return Ok(totalCartItems);
 		}
 
 		[HttpPut("{id}")]

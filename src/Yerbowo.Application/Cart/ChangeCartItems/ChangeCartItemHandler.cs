@@ -16,7 +16,7 @@ namespace Yerbowo.Application.Cart.ChangeCartItems
 	public class ChangeCartItemHandler : IRequestHandler<ChangeCartItemCommand, CartDto>
 	{
 		private readonly IHttpContextAccessor _httpContextAccessor;
-		private ISession _session;
+		private readonly ISession _session;
 		private readonly IProductRepository _productRepository;
 		private readonly IMapper _mapper;
 
