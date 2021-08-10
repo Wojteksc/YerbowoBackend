@@ -4,31 +4,39 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- master
+- '*'
 
 pool:
   vmImage: 'windows-latest'
 
 variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
+  wwwrootDir: 'src/Yerbowo.Api/wwwroot'
   buildConfiguration: 'Release'
+  dotnetSdkVersion: '3.x'
 
 steps:
-- task: NuGetToolInstaller@1
-
-- task: NuGetCommand@2
+- task: UseDotNet@2
+  displayName: 'Use .NET SDK $(dotnetSdkVersion)'
   inputs:
-    restoreSolution: '$(solution)'
+    version: '$(dotnetSdkVersion)'
 
-- task: VSBuild@1
+- task: DotNetCoreCLI@2
+  displayName: 'Restore project dependencies'
   inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    command: 'restore'
+    projects: '**/*.csproj'
 
-- task: VSTest@2
+- task: DotNetCoreCLI@2
+  displayName: 'Build the project - $(buildConfiguration)'
   inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    command: 'build'
+    arguments: '--no-restore --configuration $(buildConfiguration)'
+    projects: '**/*.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Run unit tests $('buildConfiguration)
+  inputs:
+    command: 'test'
+    arguments: '--no-build --configuration $(buildConfiguration)'
+    publishTestResults: true
+    projects: '**/*.Tests.csproj'
