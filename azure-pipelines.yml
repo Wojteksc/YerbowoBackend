@@ -10,8 +10,8 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  wwwrootDir: 'src/Yerbowo.Api/wwwroot'
   buildConfiguration: 'Release'
+  wwwrootDir: 'src/Yerbowo.Api/wwwroot'
   dotnetSdkVersion: '3.x'
 
 steps:
@@ -34,7 +34,7 @@ steps:
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
-  displayName: 'Run unit tests $('buildConfiguration)
+  displayName: 'Run unit tests $('buildConfiguration)'
   inputs:
     command: 'test'
     arguments: '--no-build --configuration $(buildConfiguration)'
