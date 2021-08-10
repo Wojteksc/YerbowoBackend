@@ -8,9 +8,10 @@ using Xunit;
 using Yerbowo.Application.Cart;
 using Yerbowo.Application.Cart.AddCartItems;
 using Yerbowo.Application.Cart.ChangeCartItems;
-using Yerbowo.FunctionalTests.Web.Extensions;
+using Yerbowo.Functional.Tests.Web.Extensions;
+using System.Linq;
 
-namespace Yerbowo.FunctionalTests.Web.Controllers
+namespace Yerbowo.Functional.Tests.Web.Controllers
 {
 	public class CartControllerTest : IClassFixture<WebTestFixture>
     {

@@ -9,9 +9,9 @@ using Yerbowo.Application.Auth.Register;
 using Yerbowo.Application.Auth.SocialLogin;
 using Yerbowo.Application.Users.GetUserDetails;
 
-namespace Yerbowo.FunctionalTests.Web.Helpers
+namespace Yerbowo.Functional.Tests.Web.Helpers
 {
-	public static class AuthHelper
+    public static class AuthHelper
 	{
 		public async static Task<HttpResponseMessage> RegisterAsync(HttpClient httpClient, RegisterCommand registerCommand)
 		{

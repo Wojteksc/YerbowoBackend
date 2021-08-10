@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Yerbowo.Infrastructure.Context;
 
-namespace Yerbowo.IntegrationTests.Helpers
+namespace Yerbowo.Integration.Tests.Helpers
 {
     public static class DbContextHelper
     {

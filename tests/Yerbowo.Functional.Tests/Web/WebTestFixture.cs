@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Yerbowo.Api;
 using Yerbowo.Infrastructure.Context;
 
-namespace Yerbowo.FunctionalTests.Web
+namespace Yerbowo.Functional.Tests.Web
 {
 	public class WebTestFixture : WebApplicationFactory<Startup>
 	{
