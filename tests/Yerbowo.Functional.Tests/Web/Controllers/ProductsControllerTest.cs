@@ -1,19 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.EntityFrameworkCore.Internal;
-using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Net;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 using Yerbowo.Application.Products;
-using Yerbowo.Application.Products.CreateProducts;
-using Yerbowo.FunctionalTests.Web.Extensions;
+using Yerbowo.Functional.Tests.Web.Extensions;
 
-namespace Yerbowo.FunctionalTests.Web.Controllers
+namespace Yerbowo.Functional.Tests.Web.Controllers
 {
-	public class ProductsControllerTest : IClassFixture<WebTestFixture>
+    public class ProductsControllerTest : IClassFixture<WebTestFixture>
 	{
 		private readonly HttpClient _httpClient;
 		public ProductsControllerTest(WebTestFixture factory)

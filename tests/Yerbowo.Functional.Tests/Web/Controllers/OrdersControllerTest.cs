@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Yerbowo.FunctionalTests.Web.Controllers
+namespace Yerbowo.Functional.Tests.Web.Controllers
 {
 	public class OrdersControllerTest : IClassFixture<WebTestFixture>
 	{

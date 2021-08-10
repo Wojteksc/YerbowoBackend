@@ -9,9 +9,9 @@ using Yerbowo.Application.Auth;
 using Yerbowo.Application.Auth.Login;
 using Yerbowo.Application.Auth.Register;
 using Yerbowo.Application.Auth.SocialLogin;
-using Yerbowo.FunctionalTests.Web.Helpers;
+using Yerbowo.Functional.Tests.Web.Helpers;
 
-namespace Yerbowo.FunctionalTests.Web.Controllers
+namespace Yerbowo.Functional.Tests.Web.Controllers
 {
 	public class AuthControllerTest : IClassFixture<WebTestFixture>
 	{

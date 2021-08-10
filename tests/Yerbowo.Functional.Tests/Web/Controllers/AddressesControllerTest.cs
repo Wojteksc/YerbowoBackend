@@ -1,22 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc.Testing;
-using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
+using Yerbowo.Application.Addresses.ChangeAddresses;
 using Yerbowo.Application.Addresses.CreateAddresses;
 using Yerbowo.Application.Addresses.GetAddressDetails;
 using Yerbowo.Application.Addresses.GetAddresses;
 using Yerbowo.Application.Auth.Register;
 using Yerbowo.Application.Users.GetUserDetails;
-using Yerbowo.FunctionalTests.Web.Helpers;
-using Yerbowo.FunctionalTests.Web.Extensions;
-using Yerbowo.Application.Addresses.ChangeAddresses;
+using Yerbowo.Functional.Tests.Web.Extensions;
+using Yerbowo.Functional.Tests.Web.Helpers;
 
-namespace Yerbowo.FunctionalTests.Web.Controllers
+namespace Yerbowo.Functional.Tests.Web.Controllers
 {
     public class AddressesControllerTest : IClassFixture<WebTestFixture>
     {

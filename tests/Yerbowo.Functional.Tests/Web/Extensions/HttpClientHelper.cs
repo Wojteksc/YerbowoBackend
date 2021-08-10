@@ -1,11 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Yerbowo.FunctionalTests.Web.Extensions
+namespace Yerbowo.Functional.Tests.Web.Extensions
 {
     public static class HttpClientHelper
     {

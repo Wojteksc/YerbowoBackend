@@ -3,7 +3,7 @@ using Yerbowo.Domain.Products;
 using Yerbowo.Fakers;
 using Yerbowo.Fakers.Extensions;
 
-namespace Yerbowo.IntegrationTests.Builders
+namespace Yerbowo.Integration.Tests.Builders
 {
 	public class ProductGenerator
 	{

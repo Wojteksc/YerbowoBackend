@@ -9,12 +9,12 @@ using Yerbowo.Fakers;
 using Yerbowo.Fakers.Extensions;
 using Yerbowo.Infrastructure.Data.Products;
 using Yerbowo.Infrastructure.Helpers;
-using Yerbowo.IntegrationTests.Builders;
-using Yerbowo.IntegrationTests.Helpers;
+using Yerbowo.Integration.Tests.Builders;
+using Yerbowo.Integration.Tests.Helpers;
 
-namespace Yerbowo.IntegrationTests.Repositories.ProductRepositoryTests
+namespace Yerbowo.Integration.Tests.Repositories.ProductRepositoryTests
 {
-	public class ProductRepositoryTests
+    public class ProductRepositoryTests
 	{
 		Product product1 { get; } = new ProductFaker().UsePrivateConstructor().Generate();
 		Product product2 { get; } = new ProductFaker().UsePrivateConstructor().Generate();
