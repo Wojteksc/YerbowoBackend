@@ -5,6 +5,9 @@ variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'src/Yerbowo.Api/wwwroot'
   dotnetSdkVersion: '3.x'
+  Jwt.Key: 'kradstar1234!@_secret_key;
+  Jwt.Issuer: 'http://localhost:65325'
+  Jwt.ExpiryMinutes: '30'
 
 steps:
 - task: UseDotNet@2
