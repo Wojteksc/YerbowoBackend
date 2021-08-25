@@ -32,3 +32,5 @@ steps:
     arguments: '--no-build --configuration $(buildConfiguration)'
     publishTestResults: true
     projects: '**/*.Tests.csproj'
+
+- task: PublishBuildArtifacts@1
